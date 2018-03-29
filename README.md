@@ -98,10 +98,16 @@ require(['../dist/wMessenger.min'], function(wm){
     // 广播key为test1的消息，不携带任何数据
     wMessenger.broadcast({ key: "test1" });
     
-    // 广播key为test2的消息，并携带数据为数组[1,2,3]
+    // 广播key为test1的消息，并携带复杂数据
+    wMessenger.broadcast({ 
+        key: "test1",
+        data: {a:1, b:2, c:[4, 5, {d:6, e:7}]}
+    });
+    
+    // 广播key为test2的消息，并携带数据为数组[1, 2, 3]
     wMessenger.broadcast({ 
         key: "test2",
-        data: [1,2,3]
+        data: [1, 2, 3]
     });
     
     // 广播key为test4的消息，并携带数据123
