@@ -73,6 +73,40 @@ require(['../dist/wMessenger.min'], function(wm){
             console.log(data);
         }
     });
+    
+    // 注销监听
+    wMessenger.removeListener(guid1);
+    wMessenger.removeListener(guid2);
+</script> 
+</body>
+</html>
+```
+
+## 广播消息
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+</head>
+<body>
+<script src="../dist/wMessenger.min.js" type="text/javascript"></script>
+<script>
+    
+    // 广播key为test1的消息，不携带任何数据
+    wMessenger.broadcast({ key: "test1" });
+    
+    // 广播key为test2的消息，并携带数据为数组[1,2,3]
+    wMessenger.broadcast({ 
+        key: "test2",
+        data: [1,2,3]
+    });
+    
+    // 广播key为test4的消息，并携带数据123
+    wMessenger.broadcast({ 
+        key: "test4",
+        data: 123
+    });
 </script> 
 </body>
 </html>
