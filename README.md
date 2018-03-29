@@ -5,6 +5,7 @@ wMessenger 跨窗口消息广播与监听
 
 wMessenger是基于Web Storage实现的跨窗口消息广播与监听的一套解决方案。通过wMessenger，可以方便监听同域下其他窗口或frame广播的通知，并支持从通知中获取携带的数据(数字、字符串、复杂的JSON格式数据等)。
 
+
 ## 快速上手
 
 获得 wMessenger 后，你只需要引入一个文件：
@@ -20,6 +21,7 @@ require(['../dist/wMessenger.min'], function(wm){
     console.log(wm);
 });
 ```
+
 
 ## 注册监听
 ```html
@@ -110,4 +112,12 @@ require(['../dist/wMessenger.min'], function(wm){
 </script> 
 </body>
 </html>
+```
+
+
+## 注意事项
+```
+1、浏览器需支持Web Storage，并且支持storage事件才能运行。
+2、仅支持在同域下运行。 a.baidu.com接收不到b.baidu.com广播的通知。
+3、如果监听的程序与广播通知的程序在同个页面，则无法触发监听。如同时在A页面注册监听，并在A页面进行相同key值的广播，则监听无效。frame页面则不受限制。
 ```
