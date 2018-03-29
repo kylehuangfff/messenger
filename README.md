@@ -20,3 +20,60 @@ require(['../dist/wMessenger.min'], function(wm){
     console.log(wm);
 });
 ```
+
+## 注册监听
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+</head>
+<body>
+<script src="../dist/wMessenger.min.js" type="text/javascript"></script>
+<script>
+    // 监听key为test1的广播，并执行cb回调，打印出广播数据
+    var guid1 = wMessenger.addListener({
+        key: "test1",
+        cb: function(data){
+            console.log(data);
+        }
+    });
+    
+    // 监听key为test2的广播，并且只有当广播携带数据为数组[1,2,3]时，才执行cb回调
+    var guid2 = wMessenger.addListener({
+        key: "test2",
+        data: [1,2,3],
+        cb: function(data){
+            console.log(data);
+        }
+    });
+    
+    // 监听key为test3的广播，并且只有当广播携带数据为对象{a:1, b:2}时，才执行cb回调
+    var guid3 = wMessenger.addListener({
+        key: "test3",
+        data: {a:1, b:2},
+        cb: function(data){
+            console.log(data);
+        }
+    });
+    
+    // 监听key为test4的广播，并且只有当广播携带数据为数字123时，才执行cb回调
+    var guid4 = wMessenger.addListener({
+        key: "test4",
+        data: 123,
+        cb: function(data){
+            console.log(data);
+        }
+    });
+    
+    // 同时监听key为test5和test6的广播，并执行cb回调
+    var guid56 = wMessenger.addListener({
+        key: ["test5", "test6"],
+        cb: function(data){
+            console.log(data);
+        }
+    });
+</script> 
+</body>
+</html>
+```
