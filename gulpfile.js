@@ -1,10 +1,7 @@
 
 'use strict';
 
-const debug = true;
-
 let gulp = require('gulp');
-
 let jsmin = require('gulp-uglify');
 let pump = require('pump');
 let rename = require('gulp-rename');
