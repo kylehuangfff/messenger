@@ -51,6 +51,7 @@ require(['../dist/wMessenger.min'], function(wm){
     });
     
     // 监听key为test3的广播，并且只有当广播携带数据为对象{a:1, b:2}时，才执行cb回调
+    // 注意：对象的比较使用了JSON.stringify，序列化时属性的枚举顺序在不同的浏览器中可能存在差异，所以请慎用此项
     var guid3 = wMessenger.addListener({
         key: "test3",
         data: {a:1, b:2},
@@ -125,5 +126,5 @@ require(['../dist/wMessenger.min'], function(wm){
 ```
 1、浏览器需支持Web Storage，并且支持storage事件才能运行。
 2、仅支持在同域下运行。 a.baidu.com接收不到b.baidu.com广播的通知。
-3、如果监听的程序与广播通知的程序在同个页面，则无法触发监听。如同时在A页面注册监听，并在A页面进行相同key值的广播，则监听无效。frame页面则不受限制。
+3、同个页面无法触发监听。如在A页面注册对某key值的监听，并在A页面进行相同key值的广播，此时监听无效。frame页面则不受限制。
 ```
