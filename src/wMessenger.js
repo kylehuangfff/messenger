@@ -14,6 +14,7 @@
 
     var handlers = [],
         prefix = 'wMessenger-',
+        toString = Object.prototype.toString,
         getGuid = function(){ return +new Date() };
 
     /*
@@ -31,13 +32,13 @@
         var options = options || {}, mapArr = [];
 
         // 未传入某些参数则退出
-        if (Object.prototype.toString.call(options.cb) !== '[object Function]') {
+        if (toString.call(options.cb) !== '[object Function]') {
             throw new Error('wMessenger Error: cb值必须为函数');
             return;
         }
 
         // 将传入的参数options.key保存到mapArr备用
-        if (Object.prototype.toString.call(options.key) === '[object String]') {
+        if (toString.call(options.key) === '[object String]') {
 
             mapArr.push(prefix + options.key);
 
@@ -95,7 +96,7 @@
 
                 // 如果data值为对象类型，则序列化成JSON格式字符串
                 // 否则当做基础数据类型处理
-                if(Array.isArray(options.data) || Object.prototype.toString.call(options.data) === '[object Object]'){
+                if(Array.isArray(options.data) || toString.call(options.data) === '[object Object]'){
                     if(JSON.stringify(options.data) !== jsonValue.data){
                         return;
                     }
@@ -143,7 +144,7 @@
         var options = options || {};
 
         // 未传入key参数则退出
-        if (!options.key || Object.prototype.toString.call(options.key) !== '[object String]') {
+        if (!options.key || toString.call(options.key) !== '[object String]') {
             throw new Error('wMessenger Error: 广播的key值必须为字符串');
         }
 
@@ -158,7 +159,7 @@
         // 当自定义数据为对象类型时，则序列化成JSON字符串
         // 否则当做基础数据类型处理
         if(typeof options.data !== 'undefined' && options.data !== null){
-            if(Array.isArray(options.data) || Object.prototype.toString.call(options.data) === '[object Object]'){
+            if(Array.isArray(options.data) || toString.call(options.data) === '[object Object]'){
                 broadcastData['data'] = JSON.stringify(options.data);
             }else{
                 broadcastData['data'] = options.data;

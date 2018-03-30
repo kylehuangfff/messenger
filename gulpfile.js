@@ -19,6 +19,7 @@ let paths = {
 // 入口程序
 gulp.task('default', ()=>{
     gulp.watch(paths.js.src, ['jsmin']);
+    gulp.start('jsmin');
 });
 
 // js压缩
