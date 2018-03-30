@@ -51,6 +51,7 @@ require(['../dist/wMessenger.min'], function(wm){
     });
     
     // 监听key为test3的广播，并且只有当广播携带数据为对象{a:1, b:2}时，才执行cb回调
+    // 注意：对象的比较使用了JSON.stringify，序列化时属性的枚举顺序在不同的浏览器中可能存在差异，所以请慎用此项
     var guid3 = wMessenger.addListener({
         key: "test3",
         data: {a:1, b:2},
