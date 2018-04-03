@@ -1,5 +1,6 @@
 /*!
  * wMessenger：基于Web Storage的跨窗口消息广播与监听
+ * @version: v1.0.0
  * @author Kyle Huang
  */
 ;(function (global, factory) {
