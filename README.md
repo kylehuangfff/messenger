@@ -124,7 +124,8 @@ require(['../dist/wMessenger.min'], function(wm){
 
 ## 注意事项
 ```
-1、浏览器需支持Web Storage，并且支持storage事件才能运行。
-2、仅支持在同域下运行。 a.baidu.com接收不到b.baidu.com广播的通知。
-3、同个页面无法触发监听。如在A页面注册对某key值的监听，并在A页面进行相同key值的广播，此时监听无效。frame页面则不受限制。
+1、请勿在file:///协议下运行，否则可能无法正常工作。
+2、浏览器需支持Web Storage，并且支持storage事件才能运行。
+3、仅支持在同域下运行。 a.baidu.com接收不到b.baidu.com广播的通知。
+4、同个页面无法触发监听。如在A页面注册对某key值的监听，并在A页面进行相同key值的广播，此时监听无效。frame页面则不受限制。
 ```
